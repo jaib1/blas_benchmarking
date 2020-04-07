@@ -1,0 +1,742 @@
+Build: 
+	CPU: AMD Ryzen 3700X
+	Memory: 128 Gb Corsair Vengeance 3000 Mhz
+	Graphics: NVIDIA MSI RTX 2070
+	Storage: Gigabyte Aorus 1 TB
+
+Benchmarks before forcing Intel MKL to use AVX2:
+
+MATLAB 2019b (`blas_benchmarking.m`):
+
+Run 1:
+
+	N = 500, n_op = 10: fft ifft chol qr svd inv pinv mtimes
+
+	Time in Seconds (SIZE: 500):
+	fft: 0.012380
+	ifft: 0.014870
+	chol: 0.018115
+	qr: 0.049134
+	svd: 0.229965
+	inv: 0.125677
+	pinv: 0.779477
+	mtimes: 0.059438
+	Total Time for N = 500: 1.313875
+
+	N = 1000, n_op = 10: fft ifft chol qr svd inv pinv mtimes
+
+	Time in Seconds (SIZE: 1000):
+	fft: 0.060664
+	ifft: 0.062655
+	chol: 0.091550
+	qr: 0.303409
+	svd: 1.327192
+	inv: 0.678509
+	pinv: 3.242559
+	mtimes: 0.361301
+	Total Time for N = 1000: 6.183955
+
+	N = 1500, n_op = 10: fft ifft chol qr svd inv pinv mtimes
+
+	Time in Seconds (SIZE: 1500):
+	fft: 0.068784
+	ifft: 0.071256
+	chol: 0.187345
+	qr: 0.606205
+	svd: 2.241441
+	inv: 1.219184
+	pinv: 7.311783
+	mtimes: 1.020703
+	Total Time for N = 1500: 12.848749
+
+	N = 2000, n_op = 10: fft ifft chol qr svd inv pinv mtimes
+
+	Time in Seconds (SIZE: 2000):
+	fft: 0.107263
+	ifft: 0.122174
+	chol: 0.402739
+	qr: 1.372451
+	svd: 5.032211
+	inv: 3.028870
+	pinv: 16.285981
+	mtimes: 2.083773
+	Total Time for N = 2000: 28.622311
+
+	Total Time: 48.969708
+
+Run 2:
+
+	N = 500, n_op = 10: fft ifft chol qr svd inv pinv mtimes
+
+	Time in Seconds (SIZE: 500):
+	fft: 0.010083
+	ifft: 0.008187
+	chol: 0.013017
+	qr: 0.036042
+	svd: 0.184746
+	inv: 0.081801
+	pinv: 0.554577
+	mtimes: 0.055269
+	Total Time for N = 500: 0.960927
+
+	N = 1000, n_op = 10: fft ifft chol qr svd inv pinv mtimes
+
+	Time in Seconds (SIZE: 1000):
+	fft: 0.032278
+	ifft: 0.035857
+	chol: 0.068033
+	qr: 0.215647
+	svd: 0.941320
+	inv: 0.516161
+	pinv: 2.788620
+	mtimes: 0.374623
+	Total Time for N = 1000: 5.016574
+
+	N = 1500, n_op = 10: fft ifft chol qr svd inv pinv mtimes
+
+	Time in Seconds (SIZE: 1500):
+	fft: 0.067364
+	ifft: 0.071875
+	chol: 0.178780
+	qr: 0.612479
+	svd: 2.384012
+	inv: 1.391175
+	pinv: 7.983463
+	mtimes: 0.941060
+	Total Time for N = 1500: 13.749031
+
+	N = 2000, n_op = 10: fft ifft chol qr svd inv pinv mtimes
+
+	Time in Seconds (SIZE: 2000):
+	fft: 0.111908
+	ifft: 0.124256
+	chol: 0.404324
+	qr: 1.424136
+	svd: 5.984750
+	inv: 3.177321
+	pinv: 17.520791
+	mtimes: 2.432212
+	Total Time for N = 2000: 31.423846
+
+	Total Time: 51.151055
+
+Run 3:
+
+	N = 500, n_op = 10: fft ifft chol qr svd inv pinv mtimes
+
+	Time in Seconds (SIZE: 500):
+	fft: 0.010958
+	ifft: 0.009944
+	chol: 0.012399
+	qr: 0.036487
+	svd: 0.196086
+	inv: 0.095349
+	pinv: 0.572933
+	mtimes: 0.056318
+	Total Time for N = 500: 1.009017
+
+	N = 1000, n_op = 10: fft ifft chol qr svd inv pinv mtimes
+
+	Time in Seconds (SIZE: 1000):
+	fft: 0.033692
+	ifft: 0.038974
+	chol: 0.076752
+	qr: 0.222377
+	svd: 0.971870
+	inv: 0.551365
+	pinv: 3.130309
+	mtimes: 0.395728
+	Total Time for N = 1000: 5.466055
+
+	N = 1500, n_op = 10: fft ifft chol qr svd inv pinv mtimes
+
+	Time in Seconds (SIZE: 1500):
+	fft: 0.073271
+	ifft: 0.078973
+	chol: 0.196256
+	qr: 0.693639
+	svd: 2.725441
+	inv: 1.711403
+	pinv: 8.893818
+	mtimes: 1.194051
+	Total Time for N = 1500: 15.686122
+
+	N = 2000, n_op = 10: fft ifft chol qr svd inv pinv mtimes
+
+	Time in Seconds (SIZE: 2000):
+	fft: 0.123445
+	ifft: 0.138019
+	chol: 0.454609
+	qr: 1.516515
+	svd: 6.855394
+	inv: 3.774240
+	pinv: 19.727758
+	mtimes: 2.468685
+	Total Time for N = 2000: 35.306849
+
+	Total Time: 57.468700
+
+numpy 1.17.2 (`blas_benchmarking.py`):
+
+Run 1:
+
+	N = 500, n_op = 10: fft ifft cholesky qr svd inv pinv matmul 
+
+	Time in Seconds (SIZE: 500): 
+	fft: 0.026595
+	ifft: 0.028687
+	chol: 0.021704
+	qr: 0.127047
+	svd: 0.457792
+	inv: 0.075669
+	pinv: 0.499614
+	mtimes: 0.050813
+
+	Total Time for N = 500: 1.301059
+
+
+	N = 1000, n_op = 10: fft ifft cholesky qr svd inv pinv matmul 
+
+	Time in Seconds (SIZE: 1000): 
+	fft: 0.132167
+	ifft: 0.129224
+	chol: 0.129051
+	qr: 0.630380
+	svd: 2.309644
+	inv: 0.486448
+	pinv: 2.652540
+	mtimes: 0.288977
+
+	Total Time for N = 1000: 6.796766
+
+
+	N = 1500, n_op = 10: fft ifft cholesky qr svd inv pinv matmul 
+
+	Time in Seconds (SIZE: 1500): 
+	fft: 0.307946
+	ifft: 0.288607
+	chol: 0.341938
+	qr: 1.963610
+	svd: 6.519040
+	inv: 1.486873
+	pinv: 7.345629
+	mtimes: 0.863521
+
+	Total Time for N = 1500: 19.229538
+
+
+	N = 2000, n_op = 10: fft ifft cholesky qr svd inv pinv matmul 
+
+	Time in Seconds (SIZE: 2000): 
+	fft: 0.527349
+	ifft: 0.495393
+	chol: 0.672897
+	qr: 4.047967
+	svd: 13.840099
+	inv: 3.455895
+	pinv: 15.733156
+	mtimes: 2.087374
+
+	Total Time for N = 2000: 41.031560
+
+	Total Time: 68.358949
+
+
+Run 2:
+
+	N = 500, n_op = 10: fft ifft cholesky qr svd inv pinv matmul 
+
+	Time in Seconds (SIZE: 500): 
+	fft: 0.026684
+	ifft: 0.032974
+	chol: 0.025519
+	qr: 0.106916
+	svd: 0.430987
+	inv: 0.067226
+	pinv: 0.489554
+	mtimes: 0.031925
+
+	Total Time for N = 500: 1.226033
+
+
+	N = 1000, n_op = 10: fft ifft cholesky qr svd inv pinv matmul 
+
+	Time in Seconds (SIZE: 1000): 
+	fft: 0.126732
+	ifft: 0.128799
+	chol: 0.122988
+	qr: 0.587420
+	svd: 2.329402
+	inv: 0.549299
+	pinv: 2.682429
+	mtimes: 0.289989
+
+	Total Time for N = 1000: 6.846396
+
+
+	N = 1500, n_op = 10: fft ifft cholesky qr svd inv pinv matmul 
+
+	Time in Seconds (SIZE: 1500): 
+	fft: 0.296485
+	ifft: 0.280230
+	chol: 0.364320
+	qr: 1.857263
+	svd: 6.633861
+	inv: 1.585898
+	pinv: 7.831182
+	mtimes: 1.130050
+
+	Total Time for N = 1500: 20.095005
+
+
+	N = 2000, n_op = 10: fft ifft cholesky qr svd inv pinv matmul 
+
+	Time in Seconds (SIZE: 2000): 
+	fft: 0.522106
+	ifft: 0.496673
+	chol: 0.661294
+	qr: 4.290073
+	svd: 14.688012
+	inv: 3.463120
+	pinv: 17.088996
+	mtimes: 2.500848
+
+	Total Time for N = 2000: 43.948420
+
+	Total Time: 72.115881
+
+
+Run 3:
+
+N = 500, n_op = 10: fft ifft cholesky qr svd inv pinv matmul 
+
+Time in Seconds (SIZE: 500): 
+fft: 0.026537
+ifft: 0.027850
+chol: 0.021859
+qr: 0.109507
+svd: 0.480931
+inv: 0.081162
+pinv: 0.507387
+mtimes: 0.037829
+
+Total Time for N = 500: 1.301623
+
+
+N = 1000, n_op = 10: fft ifft cholesky qr svd inv pinv matmul 
+
+Time in Seconds (SIZE: 1000): 
+fft: 0.130427
+ifft: 0.125719
+chol: 0.122397
+qr: 0.649128
+svd: 2.245004
+inv: 0.468076
+pinv: 2.657238
+mtimes: 0.320325
+
+Total Time for N = 1000: 6.754449
+
+
+N = 1500, n_op = 10: fft ifft cholesky qr svd inv pinv matmul 
+
+Time in Seconds (SIZE: 1500): 
+fft: 0.307608
+ifft: 0.290157
+chol: 0.361836
+qr: 1.973930
+svd: 6.835889
+inv: 1.416683
+pinv: 7.540183
+mtimes: 1.115343
+
+Total Time for N = 1500: 19.935770
+
+
+N = 2000, n_op = 10: fft ifft cholesky qr svd inv pinv matmul 
+
+Time in Seconds (SIZE: 2000): 
+fft: 0.515425
+ifft: 0.499161
+chol: 0.682939
+qr: 4.246005
+svd: 14.488721
+inv: 3.511128
+pinv: 16.904477
+mtimes: 2.250900
+
+Total Time for N = 2000: 43.329361
+
+Total Time: 71.321230
+
+
+cpu-z 1.91 benchmark:
+
+Run 1: 5460, 514
+
+Run 2: 5449, 514
+
+Run 3: 5446, 513
+
+------------------------------------------------------------
+
+Benchmarks after forcing Intel MKL to use AVX2:
+
+MATLAB (`blas_benchmarking.m`)
+
+Run 1:
+
+	N = 500, n_op = 10: fft ifft chol qr svd inv pinv mtimes
+
+	Time in Seconds (SIZE: 500):
+	fft: 0.041210
+	ifft: 0.011871
+	chol: 0.026229
+	qr: 0.035296
+	svd: 0.139424
+	inv: 0.051488
+	pinv: 0.328581
+	mtimes: 0.018769
+	Total Time for N = 500: 0.819734
+
+	N = 1000, n_op = 10: fft ifft chol qr svd inv pinv mtimes
+
+	Time in Seconds (SIZE: 1000):
+	fft: 0.036554
+	ifft: 0.038408
+	chol: 0.038200
+	qr: 0.122247
+	svd: 0.604209
+	inv: 0.225794
+	pinv: 1.427454
+	mtimes: 0.108556
+	Total Time for N = 1000: 2.627005
+
+	N = 1500, n_op = 10: fft ifft chol qr svd inv pinv mtimes
+
+	Time in Seconds (SIZE: 1500):
+	fft: 0.075767
+	ifft: 0.079869
+	chol: 0.083816
+	qr: 0.345829
+	svd: 1.602914
+	inv: 0.591951
+	pinv: 3.969681
+	mtimes: 0.344743
+	Total Time for N = 1500: 7.152314
+
+	N = 2000, n_op = 10: fft ifft chol qr svd inv pinv mtimes
+
+	Time in Seconds (SIZE: 2000):
+	fft: 0.132839
+	ifft: 0.139827
+	chol: 0.148105
+	qr: 0.628876
+	svd: 4.760712
+	inv: 1.205491
+	pinv: 9.690654
+	mtimes: 0.729309
+	Total Time for N = 2000: 17.544474
+
+	Total Time: 28.144469
+
+Run 2:
+
+	N = 500, n_op = 10: fft ifft chol qr svd inv pinv mtimes
+
+	Time in Seconds (SIZE: 500):
+	fft: 0.011507
+	ifft: 0.010534
+	chol: 0.010208
+	qr: 0.030256
+	svd: 0.141426
+	inv: 0.052024
+	pinv: 0.314366
+	mtimes: 0.018637
+	Total Time for N = 500: 0.609359
+
+	N = 1000, n_op = 10: fft ifft chol qr svd inv pinv mtimes
+
+	Time in Seconds (SIZE: 1000):
+	fft: 0.035783
+	ifft: 0.038793
+	chol: 0.035124
+	qr: 0.124330
+	svd: 0.618973
+	inv: 0.225448
+	pinv: 1.457269
+	mtimes: 0.105573
+	Total Time for N = 1000: 2.665637
+
+	N = 1500, n_op = 10: fft ifft chol qr svd inv pinv mtimes
+
+	Time in Seconds (SIZE: 1500):
+	fft: 0.076015
+	ifft: 0.079833
+	chol: 0.076903
+	qr: 0.357719
+	svd: 1.594469
+	inv: 0.590980
+	pinv: 3.968598
+	mtimes: 0.334145
+	Total Time for N = 1500: 7.134944
+
+	N = 2000, n_op = 10: fft ifft chol qr svd inv pinv mtimes
+
+	Time in Seconds (SIZE: 2000):
+	fft: 0.125472
+	ifft: 0.139584
+	chol: 0.148332
+	qr: 0.622536
+	svd: 4.468933
+	inv: 1.207221
+	pinv: 9.341151
+	mtimes: 0.734522
+	Total Time for N = 2000: 16.895718
+
+	Total Time: 27.306438
+
+Run 3:
+
+	N = 500, n_op = 10: fft ifft chol qr svd inv pinv mtimes
+
+	Time in Seconds (SIZE: 500):
+	fft: 0.011682
+	ifft: 0.011288
+	chol: 0.010873
+	qr: 0.028748
+	svd: 0.137293
+	inv: 0.047085
+	pinv: 0.322551
+	mtimes: 0.019432
+	Total Time for N = 500: 0.607543
+
+	N = 1000, n_op = 10: fft ifft chol qr svd inv pinv mtimes
+
+	Time in Seconds (SIZE: 1000):
+	fft: 0.036018
+	ifft: 0.038229
+	chol: 0.032426
+	qr: 0.115981
+	svd: 0.609922
+	inv: 0.226012
+	pinv: 1.422947
+	mtimes: 0.106771
+	Total Time for N = 1000: 2.612327
+
+	N = 1500, n_op = 10: fft ifft chol qr svd inv pinv mtimes
+
+	Time in Seconds (SIZE: 1500):
+	fft: 0.077630
+	ifft: 0.081171
+	chol: 0.076637
+	qr: 0.344043
+	svd: 1.607683
+	inv: 0.581937
+	pinv: 3.971291
+	mtimes: 0.332666
+	Total Time for N = 1500: 7.128955
+
+	N = 2000, n_op = 10: fft ifft chol qr svd inv pinv mtimes
+
+	Time in Seconds (SIZE: 2000):
+	fft: 0.132149
+	ifft: 0.138386
+	chol: 0.145158
+	qr: 0.647649
+	svd: 4.573751
+	inv: 1.211568
+	pinv: 9.422619
+	mtimes: 0.734676
+	Total Time for N = 2000: 17.113997
+
+	Total Time: 27.463435
+
+numpy 1.17.2 (`blas_benchmarking.py`):
+
+Run 1:
+
+	N = 500, n_op = 10: fft ifft cholesky qr svd inv pinv matmul 
+
+	Time in Seconds (SIZE: 500): 
+	fft: 0.031821
+	ifft: 0.031173
+	chol: 0.023864
+	qr: 0.097112
+	svd: 0.297151
+	inv: 0.046845
+	pinv: 0.330186
+	mtimes: 0.016668
+
+	Total Time for N = 500: 0.945430
+
+
+	N = 1000, n_op = 10: fft ifft cholesky qr svd inv pinv matmul 
+
+	Time in Seconds (SIZE: 1000): 
+	fft: 0.145679
+	ifft: 0.137671
+	chol: 0.101888
+	qr: 0.402931
+	svd: 1.397234
+	inv: 0.256259
+	pinv: 1.542353
+	mtimes: 0.103201
+
+	Total Time for N = 1000: 4.108349
+
+
+	N = 1500, n_op = 10: fft ifft cholesky qr svd inv pinv matmul 
+
+	Time in Seconds (SIZE: 1500): 
+
+	fft: 0.327144
+	ifft: 0.285549
+	chol: 0.255278
+	qr: 1.170523
+	svd: 3.793496
+	inv: 0.749750
+	pinv: 4.259549
+	mtimes: 0.328551
+
+	Total Time for N = 1500: 11.229412
+
+
+	N = 2000, n_op = 10: fft ifft cholesky qr svd inv pinv matmul 
+
+	Time in Seconds (SIZE: 2000): 
+	fft: 0.538427
+	ifft: 0.511337
+	chol: 0.454886
+	qr: 2.136757
+	svd: 9.050221
+	inv: 1.564895
+	pinv: 9.813284
+	mtimes: 0.700798
+
+	Total Time for N = 2000: 24.889429
+
+	Total Time: 41.172648
+
+
+Run 2:
+
+	N = 500, n_op = 10: fft ifft cholesky qr svd inv pinv matmul 
+
+	Time in Seconds (SIZE: 500): 
+	fft: 0.027311
+	ifft: 0.033489
+	chol: 0.025641
+	qr: 0.095867
+	svd: 0.312299
+	inv: 0.045526
+	pinv: 0.338242
+	mtimes: 0.015881
+	Total Time for N = 500: 0.906405
+
+	N = 1000, n_op = 10: fft ifft cholesky qr svd inv pinv matmul 
+
+	Time in Seconds (SIZE: 1000): 
+	fft: 0.140381
+	ifft: 0.131778
+	chol: 0.096494
+	qr: 0.402441
+	svd: 1.405529
+	inv: 0.253352
+	pinv: 1.549144
+	mtimes: 0.105192
+	Total Time for N = 1000: 4.109039
+
+	N = 1500, n_op = 10: fft ifft cholesky qr svd inv pinv matmul 
+
+	Time in Seconds (SIZE: 1500): 
+	fft: 0.319080
+	ifft: 0.288817
+	chol: 0.254988
+	qr: 1.140535
+	svd: 3.816105
+	inv: 0.731862
+	pinv: 4.194920
+	mtimes: 0.327043
+	Total Time for N = 1500: 11.127890
+
+	N = 2000, n_op = 10: fft ifft cholesky qr svd inv pinv matmul 
+
+	Time in Seconds (SIZE: 2000): 
+	fft: 0.550954
+	ifft: 0.509070
+	chol: 0.461334
+	qr: 2.126771
+	svd: 8.768528
+	inv: 1.588347
+	pinv: 9.724715
+	mtimes: 0.715176
+	Total Time for N = 2000: 24.560299
+
+	Total Time: 40.703663
+
+
+Run 3:
+
+	N = 500, n_op = 10: fft ifft cholesky qr svd inv pinv matmul 
+
+	Time in Seconds (SIZE: 500): 
+	fft: 0.030613
+	ifft: 0.034377
+	chol: 0.023541
+	qr: 0.094679
+	svd: 0.300812
+	inv: 0.047384
+	pinv: 0.339147
+	mtimes: 0.015964
+	Total Time for N = 500: 0.895694
+
+	N = 1000, n_op = 10: fft ifft cholesky qr svd inv pinv matmul 
+
+	Time in Seconds (SIZE: 1000): 
+	fft: 0.138310
+	ifft: 0.135756
+	chol: 0.095497
+	qr: 0.401371
+	svd: 1.400581
+	inv: 0.255193
+	pinv: 1.549862
+	mtimes: 0.099788
+	Total Time for N = 1000: 4.100959
+
+	N = 1500, n_op = 10: fft ifft cholesky qr svd inv pinv matmul 
+
+	Time in Seconds (SIZE: 1500): 
+	fft: 0.321938
+	ifft: 0.297632
+	chol: 0.262517
+	qr: 1.160672
+	svd: 3.764923
+	inv: 0.745840
+	pinv: 4.250654
+	mtimes: 0.340301
+	Total Time for N = 1500: 11.205645
+
+	N = 2000, n_op = 10: fft ifft cholesky qr svd inv pinv matmul 
+
+	Time in Seconds (SIZE: 2000): 
+	fft: 0.558193
+	ifft: 0.514494
+	chol: 0.463139
+	qr: 2.140606
+	svd: 9.022786
+	inv: 1.590107
+	pinv: 9.602408
+	mtimes: 0.717319
+	Total Time for N = 2000: 24.717835
+
+	Total Time: 40.920162
+
+
+cpu-z 1.91 benchmark:
+
+	Run 1: 5252, 509
+
+	Run 2: 5243, 509
+
+	Run 3: 5256, 510
